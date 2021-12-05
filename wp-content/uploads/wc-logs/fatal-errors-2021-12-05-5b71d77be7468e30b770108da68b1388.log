@@ -6,3 +6,50 @@
 
 2021-12-05T09:29:07+00:00 CRITICAL Maximum execution time of 600 seconds exceeded in E:\wordpress\htdocs\natural_collection\wp-includes\wp-db.php on line 2056
 
+2021-12-05T09:34:07+00:00 CRITICAL Maximum execution time of 600 seconds exceeded in E:\wordpress\htdocs\natural_collection\wp-includes\wp-db.php on line 2056
+
+2021-12-05T09:38:02+00:00 CRITICAL Uncaught Error: Class "WPForms\Tasks\Actions\EntryEmailsTask" not found in E:\wordpress\htdocs\natural_collection\wp-content\plugins\wpforms-lite\src\Tasks\Tasks.php:55
+Stack trace:
+#0 E:\wordpress\htdocs\natural_collection\wp-content\plugins\wpforms-lite\src\WPForms.php(320): WPForms\Tasks\Tasks->init()
+#1 E:\wordpress\htdocs\natural_collection\wp-includes\class-wp-hook.php(303): WPForms\WPForms->WPForms\{closure}('')
+#2 E:\wordpress\htdocs\natural_collection\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#3 E:\wordpress\htdocs\natural_collection\wp-includes\plugin.php(470): WP_Hook->do_action(Array)
+#4 E:\wordpress\htdocs\natural_collection\wp-settings.php(578): do_action('init')
+#5 E:\wordpress\htdocs\natural_collection\wp-config.php(96): require_once('E:\\wordpress\\ht...')
+#6 E:\wordpress\htdocs\natural_collection\wp-load.php(50): require_once('E:\\wordpress\\ht...')
+#7 E:\wordpress\htdocs\natural_collection\wp-admin\admin-ajax.php(22): require_once('E:\\wordpress\\ht...')
+#8 {main}
+  thrown in E:\wordpress\htdocs\natural_collection\wp-content\plugins\wpforms-lite\src\Tasks\Tasks.php on line 55
+
+2021-12-05T09:38:02+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class "\WPForms\Emails\Summaries" not found in E:\wordpress\htdocs\natural_collection\wp-includes\class-wp-hook.php:303
+Stack trace:
+#0 E:\wordpress\htdocs\natural_collection\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#1 E:\wordpress\htdocs\natural_collection\wp-includes\plugin.php(470): WP_Hook->do_action(Array)
+#2 E:\wordpress\htdocs\natural_collection\wp-content\plugins\wpforms-lite\src\WPForms.php(277): do_action('wpforms_loaded')
+#3 E:\wordpress\htdocs\natural_collection\wp-includes\class-wp-hook.php(303): WPForms\WPForms->objects('')
+#4 E:\wordpress\htdocs\natural_collection\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#5 E:\wordpress\htdocs\natural_collection\wp-includes\plugin.php(470): WP_Hook->do_action(Array)
+#6 E:\wordpress\htdocs\natural_collection\wp-settings.php(441): do_action('plugins_loaded')
+#7 E:\wordpress\htdocs\natural_collection\wp-config.php(96): require_once('E:\\wordpress\\ht...')
+#8 E:\wordpress\htdocs\natural_collection\wp-load.php(50): require_once('E:\\wordpress\\ht...')
+#9 E:\wordpress\htdocs\natural_collection\wp-admin\admin-ajax.php(22): require_once('E:\\wordpress\\ht...')
+#10 {main}
+  thrown in E:\wordpress\htdocs\natural_collection\wp-includes\class-wp-hook.php on line 303
+
+2021-12-05T10:04:04+00:00 CRITICAL Uncaught TypeError: voku\helper\HtmlDomParser::loadHtml(): Argument #1 ($html) must be of type string, bool given, called in E:\wordpress\htdocs\natural_collection\wp-content\plugins\simply-static\vendor\voku\simple_html_dom\src\voku\helper\HtmlDomParser.php on line 225 and defined in E:\wordpress\htdocs\natural_collection\wp-content\plugins\simply-static\vendor\voku\simple_html_dom\src\voku\helper\HtmlDomParser.php:840
+Stack trace:
+#0 E:\wordpress\htdocs\natural_collection\wp-content\plugins\simply-static\vendor\voku\simple_html_dom\src\voku\helper\HtmlDomParser.php(225): voku\helper\HtmlDomParser->loadHtml(false, NULL)
+#1 E:\wordpress\htdocs\natural_collection\wp-content\plugins\simply-static\src\class-ss-url-extractor.php(268): voku\helper\HtmlDomParser::__callStatic('str_get_html', Array)
+#2 E:\wordpress\htdocs\natural_collection\wp-content\plugins\simply-static\src\class-ss-url-extractor.php(158): Simply_Static\Url_Extractor->extract_and_replace_urls_in_html()
+#3 E:\wordpress\htdocs\natural_collection\wp-content\plugins\simply-static\src\tasks\class-ss-fetch-urls-task.php(129): Simply_Static\Url_Extractor->extract_and_update_urls()
+#4 E:\wordpress\htdocs\natural_collection\wp-content\plugins\simply-static\src\tasks\class-ss-fetch-urls-task.php(97): Simply_Static\Fetch_Urls_Task->handle_200_response(Object(Simply_Static\Page), true, true)
+#5 E:\wordpress\htdocs\natural_collection\wp-content\plugins\simply-static\src\class-ss-archive-creation-job.php(122): Simply_Static\Fetch_Urls_Task->perform()
+#6 E:\wordpress\htdocs\natural_collection\wp-content\plugins\woocommerce\includes\libraries\wp-background-process.php(301): Simply_Static\Archive_Creation_Job->task('fetch_urls')
+#7 E:\wordpress\htdocs\natural_collection\wp-content\plugins\woocommerce\includes\libraries\wp-background-process.php(175): WP_Background_Process->handle()
+#8 E:\wordpress\htdocs\natural_collection\wp-includes\class-wp-hook.php(303): WP_Background_Process->maybe_handle('')
+#9 E:\wordpress\htdocs\natural_collection\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#10 E:\wordpress\htdocs\natural_collection\wp-includes\plugin.php(470): WP_Hook->do_action(Array)
+#11 E:\wordpress\htdocs\natural_collection\wp-admin\admin-ajax.php(202): do_action('wp_ajax_nopriv_...')
+#12 {main}
+  thrown in E:\wordpress\htdocs\natural_collection\wp-content\plugins\simply-static\vendor\voku\simple_html_dom\src\voku\helper\HtmlDomParser.php on line 840
+
