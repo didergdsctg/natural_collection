@@ -5,7 +5,7 @@ Tags: Elementor,Beaver Builder,Templates,Gutenberg,Block Editor,Astra Starter Si
 Requires at least: 4.4
 Requires PHP: 5.3
 Tested up to: 5.8
-Stable tag: 3.0.0
+Stable tag: 3.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -132,6 +132,39 @@ We are open to suggestions and would love to work on topics that our users are l
 8. Free Images by Pixabay right inside the WordPress media popup.
 
 == Changelog ==
+
+v3.0.9 - 10-December-2021
+- Fix: Fixed an issue with resetting posts requests.
+- Fix: Fixed an undefined variable console error with plugin activation request.
+
+v3.0.8 - 10-December-2021
+- Improvement: Added backward screen navigation for welcome and page builders screen.
+- Improvement: Better handling of errors of final import step.
+- Fix: Retry import restricted to maximum 3 times.
+
+v3.0.7 - 9-December-2021
+- Fix: Fixed an issue with import failure when user activates the license for the first time.
+- Fix: Fixed the errors on final import step.
+
+v3.0.6 - 9-December-2021
+- Fix: Plugin installation failed error fixed after retry action.
+- Fix: Removed unused SVG images.
+
+v3.0.5 - 9-December-2021
+- Fix: Import process stopping after the posts are deleted.
+
+v3.0.4 - 8-December-2021
+- Fix: Log the errors reported on the posts delete step during deleting old site.
+
+v3.0.3 - 8-December-2021
+- Fix: Import failing when "Delete Previously imported sites" checkbox is checked.
+
+v3.0.2 - 8-December-2021
+- Fix: Improvised errors for the Site Reset step while importing.
+
+v3.0.1 - 8-December-2021
+- Improvement: Better handling of errors.
+- Fix: Removed extra sub directory from v3.0.0 update. 
 
 v3.0.0 - 8-December-2021
 - New: All new user interface to make it easier to select and customize the templates when you are building your website.

@@ -39,9 +39,6 @@ export const initialState = {
 	tryAgainCount: 0,
 	confettiDone: false,
 
-	// Business Information.
-	businessSearchTerm: '',
-
 	// Template Information.
 	templateId: 0,
 	templateResponse: null,
@@ -53,6 +50,7 @@ export const initialState = {
 	reset: true,
 	themeStatus: false,
 	importStatusLog: '',
+	importStatus: '',
 	resetCustomizer: false,
 	resetSiteOptions: false,
 	resetContent: false,

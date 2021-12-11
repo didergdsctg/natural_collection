@@ -4,6 +4,7 @@ import { decodeEntities } from '@wordpress/html-entities';
 import { useStateValue } from '../../store/store';
 import Button from '../../components/button/button';
 import './style.scss';
+import { getSupportLink } from '../../utils/functions';
 
 const ErrorScreen = () => {
 	const [
@@ -17,13 +18,10 @@ const ErrorScreen = () => {
 		dispatch,
 	] = useStateValue();
 
-	const supportLink =
-		'https://wpastra.com/starter-templates-support/?ip=' +
-		starterTemplates.clientIP +
-		'&template-id=' +
-		templateId +
-		'&subject=' +
-		importErrorMessages.errorText;
+	const supportLink = getSupportLink(
+		templateId,
+		importErrorMessages.errorText
+	);
 
 	const tryAgain = () => {
 		dispatch( {
@@ -158,7 +156,7 @@ const ErrorScreen = () => {
 						</p>
 					) ) }
 			</div>
-			{ importErrorMessages.tryAgain && (
+			{ importErrorMessages.tryAgain && tryAgainCount < 4 && (
 				<Button className="ist-button" after onClick={ tryAgain }>
 					{ __( 'Try Importing Again', 'astra-sites' ) }
 				</Button>

@@ -1,11 +1,7 @@
 import { __ } from '@wordpress/i18n';
 
 export const getDemo = async ( id, storedState ) => {
-	const [ { templateResponse, currentIndex }, dispatch ] = storedState;
-
-	if ( null !== templateResponse ) {
-		return;
-	}
+	const [ { currentIndex }, dispatch ] = storedState;
 
 	const generateData = new FormData();
 	generateData.append( 'action', 'astra-sites-api-request' );
@@ -130,11 +126,7 @@ export const getDemo = async ( id, storedState ) => {
 };
 
 export const checkRequiredPlugins = ( storedState ) => {
-	const [ { templateResponse }, dispatch ] = storedState;
-
-	if ( null !== templateResponse ) {
-		return;
-	}
+	const [ {}, dispatch ] = storedState;
 
 	const reqPlugins = new FormData();
 	reqPlugins.append( 'action', 'astra-required-plugins' );
@@ -297,4 +289,23 @@ export const saveTypography = async ( selectedValue ) => {
 		method: 'post',
 		body: data,
 	} );
+};
+
+export const divideIntoChunks = ( chunkSize, inputArray ) => {
+	const values = Object.keys( inputArray );
+	const final = [];
+	let counter = 0;
+	let portion = {};
+
+	for ( const key in inputArray ) {
+		if ( counter !== 0 && counter % chunkSize === 0 ) {
+			final.push( portion );
+			portion = {};
+		}
+		portion[ key ] = inputArray[ values[ counter ] ];
+		counter++;
+	}
+	final.push( portion );
+
+	return final;
 };

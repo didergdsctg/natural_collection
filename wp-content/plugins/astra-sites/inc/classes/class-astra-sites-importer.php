@@ -182,7 +182,8 @@ if ( ! class_exists( 'Astra_Sites_Importer' ) ) {
 			$ids_mapping = array();
 
 			if ( ! astra_sites_is_valid_url( $wpforms_url ) ) {
-				wp_send_json_error( __( 'Invalid Request URL.', 'astra-sites' ) );
+				/* Translators: %s is WP Forms URL. */
+				wp_send_json_error( sprintf( __( 'Invalid Request URL - %s', 'astra-sites' ), $wpforms_url ) );
 			}
 
 			if ( ! empty( $wpforms_url ) && function_exists( 'wpforms_encode' ) ) {
@@ -374,13 +375,14 @@ if ( ! class_exists( 'Astra_Sites_Importer' ) ) {
 			}
 
 			if ( ! class_exists( 'XMLReader' ) ) {
-				wp_send_json_error( __( 'If XMLReader is not available, it imports all other settings and only skips XML import. This creates an incomplete website. We should bail early and not import anything if this is not present.', 'astra-sites' ) );
+				wp_send_json_error( __( 'The XMLReader library is not available. This library is required to import the content for the website.', 'astra-sites' ) );
 			}
 
 			$wxr_url = ( isset( $_REQUEST['wxr_url'] ) ) ? urldecode( $_REQUEST['wxr_url'] ) : '';
 
 			if ( ! astra_sites_is_valid_url( $wxr_url ) ) {
-				wp_send_json_error( __( 'Invalid Request URL.', 'astra-sites' ) );
+				/* Translators: %s is XML URL. */
+				wp_send_json_error( sprintf( __( 'Invalid Request URL - %s', 'astra-sites' ), $wxr_url ) );
 			}
 
 			Astra_Sites_Importer_Log::add( 'Importing from XML ' . $wxr_url );
@@ -657,7 +659,10 @@ if ( ! class_exists( 'Astra_Sites_Importer' ) ) {
 			// Flush permalinks.
 			flush_rewrite_rules();
 
-			delete_option( 'astra_sites_import_data' );
+			/**
+			 * Not deleting the Demo data after import, in order to avoid customizer data empty issue.
+			 * delete_option( 'astra_sites_import_data' );
+			 */
 
 			Astra_Sites_Importer_Log::add( 'Complete ' );
 		}
@@ -794,7 +799,7 @@ if ( ! class_exists( 'Astra_Sites_Importer' ) ) {
 			if ( defined( 'WP_CLI' ) ) {
 				WP_CLI::line( 'Deleted Widgets!' );
 			} elseif ( wp_doing_ajax() ) {
-				wp_send_json_success();
+				wp_send_json_success( __( 'Deleted Widgets!', 'astra-sites' ) );
 			}
 		}
 
@@ -803,6 +808,7 @@ if ( ! class_exists( 'Astra_Sites_Importer' ) ) {
 		 *
 		 * @since 1.3.0
 		 * @since 1.4.0 The `$post_id` was added.
+		 * Note: This function can be deleted after a few releases since we are performing the delete operation in chunks.
 		 *
 		 * @param  integer $post_id Post ID.
 		 * @return void
@@ -846,6 +852,7 @@ if ( ! class_exists( 'Astra_Sites_Importer' ) ) {
 		 *
 		 * @since 1.3.0
 		 * @since 1.4.0 The `$post_id` was added.
+		 * Note: This function can be deleted after a few releases since we are performing the delete operation in chunks.
 		 *
 		 * @param  integer $post_id Post ID.
 		 * @return void
@@ -885,6 +892,7 @@ if ( ! class_exists( 'Astra_Sites_Importer' ) ) {
 		 *
 		 * @since 1.3.0
 		 * @since 1.4.0 The `$post_id` was added.
+		 * Note: This function can be deleted after a few releases since we are performing the delete operation in chunks.
 		 *
 		 * @param  integer $term_id Term ID.
 		 * @return void
